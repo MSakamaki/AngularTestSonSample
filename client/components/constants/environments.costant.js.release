@@ -1,0 +1,7 @@
+angular.module('AngularJsTestson.constants')
+  .constant('env', {
+    api: {
+      backendResources : 'http://releace.co.jp'
+    }
+  });
+

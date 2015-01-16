@@ -1,0 +1,7 @@
+{
+  "name": "John Doe",
+  "email": "hoge",
+  "role": "user",
+  "provider": "local",
+  "salt": "none"
+}
