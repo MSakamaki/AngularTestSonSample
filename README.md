@@ -6,7 +6,6 @@ AngularJSテスト課題雛形
 
 [Homebrew](http://brew.sh/), [node.js](http://nodejs.org/) はインストール済み
 
-
 ### npm
 
 ```sh
@@ -22,6 +21,38 @@ git clone xxxxxx sample
 cd sample
 npm install
 bower install
+```
+
+### ディレクトリ構成
+
+```sh
+├── Gruntfile.js
+├── bower.json
+├── package.json
+├── client
+│   ├── app
+│   ├── assets
+│   ├── components
+│   └── index.html
+├── e2e
+│   ├── components
+│   ├── functional_test
+│   └── acceptance_test
+├── karma.conf.js
+├── protractor.acceptance.conf.js
+├── protractor.functional.conf.js
+├── report
+│   ├── coverage
+│   └── plato
+└── server
+    ├── api
+    ├── auth
+    ├── components
+    ├── config
+    ├── user
+    └── views
+
+
 ```
 
 ### grunt タスク一覧

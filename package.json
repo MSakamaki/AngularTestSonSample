@@ -88,10 +88,7 @@
     "start": "node server/app.js",
     "test": "grunt test",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update",
-    "init-mongo-express": "cp node_modules/mongo-express/config.default.js node_modules/mongo-express/config.js",
-    "db-serve": "node node_modules/mongo-express/app.js",
-    "db-start": "mongod --dbpath ./db --fork --logpath ./.tmp/mongo.log",
-    "postinstall": "bower install && npm run update-webdriver && mkdir -p ./db ./.tmp && npm run init-mongo-express"
+    "postinstall": "bower install && npm run update-webdriver && mkdir -p ./.tmp "
   },
   "private": true
 }
