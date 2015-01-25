@@ -8,7 +8,7 @@
 describe('case login', function() {
   var page={};
 
-  beforeEach(function() {
+  beforeEatch(function() {
     browser.get('/login');
     page.login = require('../../components/login/login.po');
     page.home = require('../../components/home/home.po');

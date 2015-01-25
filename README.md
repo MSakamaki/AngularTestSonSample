@@ -58,10 +58,7 @@ bower install
 ### grunt タスク一覧
 
 - 開発
-    - `serve`     開発用アプリを立ち上げる  
-    (client/components/constants/environments.costant.js.unit の設定で動作する)
-    - `serve:it`  結合環境へ接続する為のサーバーを立ち上げる  
-    (client/components/constants/environments.costant.js.integration の設定で動作する)
+    - `serve`     開発用アプリを立ち上げる
     - `server`    serveのalias
 - テスト
     - `test` クライアントの単体テスト
@@ -74,3 +71,56 @@ bower install
 - ビルド
     - `build` リリース用ファイルを作り出す。  
      (client/components/constants/environments.costant.js.releace の設定でビルドする)
+- 追加オプション
+    - `env` デフォルト`unit`
+     - `--env=unit`  単体テスト用の設定ファイルを使う
+     - `--env=it`  結合テスト用の設定ファイルを使う
+     - `--env=releace` リリース用の設定ファイルを使う
+    - `ci` デフォルト`false`、レポート等のアウトプットがCI連携用の処理になる
+     - `--ci=true` CI環境用の処理を行う
+
+Protoractorの設定について
+------
+
+ + 継承関係
+
+```sh
+protractor.conf.js
+├── protractor.acceptable.conf.js
+│   └── protractor.acceptable.ci.conf.js
+└── protractor.functional.conf.js
+     └── protractor.functional.ci.conf.js
+```
+
+#### protractor.conf.js
+
+ + protoractor全体の設定を定義している
+
+#### protractor.acceptable.conf.js
+
+ + protractor.conf.jsを継承
+ + 受け入れテスト用のテストコードの読み取りを行う。
+
+#### protractor.acceptable.ci.conf.js
+
+ + protractor.acceptable.conf.jsを継承
+ + レポート出力をXMLファイルに変化させる
+
+#### protractor.functional.conf.js
+
+ + protractor.conf.jsを継承
+ + 機能テスト用のテストコードの読み取りを行う。
+
+#### protractor.functional.ci.conf.js
+
+ + protractor.functional.conf.jsを継承
+ + レポート出力をXMLファイルに変化させる
+
+
+その他
+------
+
+Angular.js デバッグツール
+
+- [Batarang (Chrome アプリ)](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
+- [ng-inspector for AngularJS(Chrome アプリ)](https://chrome.google.com/webstore/detail/ng-inspector-for-angularj/aadgmnobpdmgmigaicncghmmoeflnamj)

@@ -476,6 +476,10 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js',
         singleRun: true
+      },
+      ci: {
+        configFile: 'karma.ci.conf.js',
+        singleRun: true
       }
     },
 
@@ -488,23 +492,26 @@ module.exports = function (grunt) {
 
     protractor: {
       options: {
-        configFile: 'protractor.conf.js'
+        configFile: 'protractor/protractor.conf.js'
       },
-      /*chrome: {
-        options: {
-          args: {
-            browser: 'chrome'
-          }
-        }
-      },*/
       functional:{
         options: {
-          configFile: 'protractor.functional.conf.js'
+          configFile: 'protractor/protractor.functional.conf.js'
+        }
+      },
+      functional_ci:{
+        options: {
+          configFile: 'protractor/protractor.functional.ci.conf.js'
         }
       },
       acceptance:{
         options: {
-          configFile: 'protractor.acceptance.conf.js'
+          configFile: 'protractor/protractor.acceptance.conf.js'
+        }
+      },
+      acceptance_ci:{
+        options: {
+          configFile: 'protractor/protractor.acceptance.ci.conf.js'
         }
       }
     },
@@ -657,6 +664,18 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', function(target) {
+    var testType = grunt.option('env');
+    var isCi = grunt.option('ci');
+    grunt.log.writeln('test type: ', testType);
+    var getTestType = function (type){
+      switch (type) {
+        case 'unit':    return 'copy:unit_test';
+        case 'it':      return 'copy:integration';
+        case 'release': return 'copy:release';
+        default:        return 'copy:unit_test'
+      }
+    };
+
     if (target === 'client') {
       return grunt.task.run([
         'clean:server',
@@ -664,15 +683,15 @@ module.exports = function (grunt) {
         'env:all',
         'concurrent:test',
         'injector',
-        'autoprefixer',
-        'karma'
+        'autoprefixer',,
+        isCi ? 'karma:ci' : 'karma:unit'
       ]);
     }
 
     else if (target === 'e2e') {
       return grunt.task.run([
         'clean:server',
-        'copy:unit_test',
+        getTestType(testType),
         'env:all',
         'env:test',
         'concurrent:test',
@@ -680,14 +699,15 @@ module.exports = function (grunt) {
         'wiredep',
         'autoprefixer',
         'express:dev',
-        'protractor:functional'
+        'protractor:functional',
+        isCi ? 'protractor:functional_ci' : 'protractor:functional'
       ]);
     }
 
     else if (target === 'accept') {
       return grunt.task.run([
         'clean:server',
-        'copy:unit_test',
+        getTestType(testType),
         'env:all',
         'env:test',
         'concurrent:test',
@@ -695,7 +715,7 @@ module.exports = function (grunt) {
         'wiredep',
         'autoprefixer',
         'express:dev',
-        'protractor:acceptance'
+        isCi ? 'protractor:acceptable_ci' : 'protractor:acceptable'
       ]);
     }
 
@@ -735,6 +755,14 @@ module.exports = function (grunt) {
         'connect:report',
         'open:report',
         'watch:report'
+      ]);
+    }
+    else if (target === 'ci') {
+      grunt.option('ci', 'true');
+      return grunt.task.run([
+        'test:accept',
+        'test:e2e',
+        'test:client'
       ]);
     }
   });
