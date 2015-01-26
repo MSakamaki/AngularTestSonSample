@@ -19,7 +19,7 @@
       "auth": true
     }
   },
-  "generator-bas-front-component": {
+  "generator-ng-component": {
     "routeDirectory": "client/app/",
     "directiveDirectory": "client/app/",
     "filterDirectory": "client/app/",
