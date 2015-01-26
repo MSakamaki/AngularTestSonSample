@@ -15,11 +15,6 @@
           <a ui-sref="{{item.link}}" >{{item.title}}</a>
         </li>
       </ul>
-    
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-show="isLoggedIn()"><p class="loginuser navbar-text">こんにちは {{ getCurrentUser().name }}</p> </li>
-        <li ng-show="isLoggedIn()"><a class="logout" href="" ng-click="logout()">ログアウト</a></li>
-      </ul>
     </div>
   </div>
 </div>

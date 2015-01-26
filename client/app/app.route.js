@@ -19,22 +19,22 @@ angular.module('AngularJsTestson')
       })
 
     // 非認証時
-    .state('main.login', {
-      url: '^/login',
-      views: {
-        'header@main': {
-          template: ''
-        },
-        'contents@main': {
-          templateUrl: 'app/login/login.html',
-          controllerAs: 'login',
-          controller: 'LoginController'
-        },
-        'footer@main': {
-          template: ''
-        }
-      }
-    })
+    // .state('main.login', {
+    //   url: '^/login',
+    //   views: {
+    //     'header@main': {
+    //       template: ''
+    //     },
+    //     'contents@main': {
+    //       templateUrl: 'app/login/login.html',
+    //       controllerAs: 'login',
+    //       controller: 'LoginController'
+    //     },
+    //     'footer@main': {
+    //       template: ''
+    //     }
+    //   }
+    // })
 
     // アプリルート
     .state('main.app', {
@@ -61,6 +61,28 @@ angular.module('AngularJsTestson')
           templateUrl: 'app/home/home.html',
           controllerAs: 'home',
           controller: 'HomeController'
+        }
+      }
+    })
+
+    // カート
+    .state('main.app.cart', {
+      url: '^/cart',
+      views: {
+        'contents@main': {
+          templateUrl: 'app/cart/cart.html',
+          controller: 'CartCtrl'
+        }
+      }
+    })
+
+    // お届け先入力
+    .state('main.app.address', {
+      url: '^/cart',
+      views: {
+        'contents@main': {
+          templateUrl: 'app/address/address.html',
+          controller: 'AddressCtrl'
         }
       }
     });

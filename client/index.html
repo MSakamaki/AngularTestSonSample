@@ -20,8 +20,9 @@
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
+      <link rel="stylesheet" href="app/address/address.css">
       <link rel="stylesheet" href="app/app.css">
-      <link rel="stylesheet" href="app/login/login.css">
+      <link rel="stylesheet" href="app/cart/cart.css">
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
@@ -54,11 +55,10 @@
         <script src="app/app.js"></script>
           <!-- injector:js -->
           <script src="components/constants/environments.costant.js"></script>
+          <script src="app/address/address.controller.js"></script>
           <script src="app/app.route.js"></script>
+          <script src="app/cart/cart.controller.js"></script>
           <script src="app/home/home.controller.js"></script>
-          <script src="app/login/login.controller.js"></script>
-          <script src="components/auth/auth.service.js"></script>
-          <script src="components/auth/user.service.js"></script>
           <script src="components/views/navbar/navbar.controller.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
