@@ -1,3 +1,15 @@
 <div class="col-md-12">
-This is the cart view.
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="item in cartItems">
+      <p>{{item.productName}}</p>
+      <p>{{item.price}}</p>
+      <p>のこり{{item.stock}}</p>
+      <button type="button" class="btn btn-info" ng-click="addCart($index)">カートに追加</button>
+      <button type="button" class="btn btn-warning" ng-click="removeCart($index)">カートから削除</button>
+    </li>
+  </ul>
+  <div class="text-center">
+    <button type="button" class="btn btn-danger" ng-click="clearCart()">カートをクリア</button>
+  </div>
 </div>
+
