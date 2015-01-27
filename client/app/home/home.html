@@ -1,1 +1,10 @@
 <h1 class="homepage-title">{{home.message}}</h1>
+
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="product in products">
+    <p>{{product.productName}}</p>
+    <p>{{product.price}}</p>
+    <p>のこり{{product.stock}}</p>
+    <button type="button" class="btn btn-info" ng-click="addCart($index)">カートに追加</button>
+  </li>
+</ul>
