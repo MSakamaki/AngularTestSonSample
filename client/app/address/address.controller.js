@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sample2App')
+angular.module('AngularJsTestson')
   .controller('AddressCtrl', function ($scope) {
     $scope.message = 'Hello';
   });
