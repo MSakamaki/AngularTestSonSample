@@ -14,4 +14,8 @@ angular.module('AngularJsTestson')
       cartItem.add($scope.products[index]);
     };
 
+    $scope.CartItemCount = function(){
+      return cartItem.items.length;
+    };
+
   });

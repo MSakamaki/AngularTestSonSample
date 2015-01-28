@@ -15,6 +15,6 @@ angular.module('AngularJsTestson')
 
     $scope.clearCart = function() {
       cartItem.clear();
-    }
+    };
 
   });

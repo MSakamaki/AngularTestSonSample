@@ -1,6 +1,7 @@
+<div ui-sref="main.app.address()" class="btn btn-info">購入する</div>
 <div class="col-md-12">
   <ul class="list-group">
-    <li class="list-group-item" ng-repeat="item in cartItems">
+    <li class="list-group-item" ng-repeat="item in cartItems track by $index">
       <p>{{item.productName}}</p>
       <p>{{item.price}}</p>
       <p>のこり{{item.stock}}</p>
