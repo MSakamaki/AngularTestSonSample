@@ -5,7 +5,6 @@ angular.module('AngularJsTestson')
     $scope.payment = function(){
       var items=[];
       angular.forEach(cartItem.items, function(v,k){
-        console.log(v,k);
         items.push({
           productId: v.productId,
           quantity: 1
