@@ -3,7 +3,7 @@
 describe('Controller: CartCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('sample2App'));
+  beforeEach(module('AngularJsTestson'));
 
   var CartCtrl, scope;
 

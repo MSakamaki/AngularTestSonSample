@@ -3,7 +3,7 @@
 describe('Controller: AddressCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('sample2App'));
+  beforeEach(module('AngularJsTestson'));
 
   var AddressCtrl, scope;
 

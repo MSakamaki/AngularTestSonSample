@@ -683,7 +683,7 @@ module.exports = function (grunt) {
         'env:all',
         'concurrent:test',
         'injector',
-        'autoprefixer',,
+        'autoprefixer',
         isCi ? 'karma:ci' : 'karma:unit'
       ]);
     }
@@ -753,8 +753,7 @@ module.exports = function (grunt) {
     else if (target === 'view') {
       return grunt.task.run([
         'connect:report',
-        'open:report',
-        'watch:report'
+        'open:report'
       ]);
     }
     else if (target === 'ci') {

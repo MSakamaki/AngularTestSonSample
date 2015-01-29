@@ -18,7 +18,7 @@ angular.module('AngularJsTestson')
         mailaddress : $scope.order.mailaddress,
         purchases   : items
       }).success(function(data){
-        alert('決済しました');
+        window.alert(data.message);
         $state.go('main.app.home');
       });
     };

@@ -3,7 +3,7 @@
 describe('Service: cartItem', function () {
 
   // load the service's module
-  beforeEach(module('sample2App'));
+  beforeEach(module('AngularJsTestson'));
 
   // instantiate service
   var cartItem;

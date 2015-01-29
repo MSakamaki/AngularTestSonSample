@@ -2,11 +2,15 @@
 <div ui-sref="main.app.address()" class="btn btn-info cart-buy">購入する</div>
 <div class="col-md-12">
   <ul class="list-group">
-    <li class="list-group-item" ng-repeat="item in cartItems track by $index">
+    <li class="list-group-item" 
+        ng-repeat="(productId, item) in cartItems track by $index">
       <p>{{item.productName}}</p>
       <p>{{item.price}}</p>
-      <button type="button" class="btn btn-info cart-add" ng-click="addCart($index)">カートに追加</button>
-      <button type="button" class="btn btn-warning cart-remove" ng-click="removeCart($index)">カートから削除</button>
+      <p>{{item.count}}</p>
+      <button type="button" class="btn btn-info cart-add"
+              ng-click="addCart(productId)">カートに追加</button>
+      <button type="button" class="btn btn-warning cart-remove"
+              ng-click="removeCart(productId)">カートから削除</button>
     </li>
   </ul>
   <div class="text-center">
