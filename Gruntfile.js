@@ -753,7 +753,8 @@ module.exports = function (grunt) {
     else if (target === 'view') {
       return grunt.task.run([
         'connect:report',
-        'open:report'
+        'open:report',
+        'watch:report'
       ]);
     }
     else if (target === 'ci') {
