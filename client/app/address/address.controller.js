@@ -2,7 +2,9 @@
 
 angular.module('AngularJsTestson')
   .controller('AddressCtrl', function ($scope, $http, $state, cartItem) {
+    $scope.isLoading = false;
     $scope.payment = function(){
+      $scope.isLoading=true;
       var items=[];
       angular.forEach(cartItem.items, function(v){
         items.push({
@@ -19,6 +21,7 @@ angular.module('AngularJsTestson')
         purchases   : items
       }).success(function(data){
         window.alert(data.message);
+        cartItem.clear();
         $state.go('main.app.home');
       });
     };

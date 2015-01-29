@@ -1,58 +1,69 @@
-<form novalidate class="simple-form" name="purch_form">
-  <div class="col-md-9">
-    <div class="form-inline">
-      <label class="col-sm-2" for="lastName">お名前</label>
-      <div class="form-group col-sm-10">
-        <input ng-model="order.lastName" type="text" 
-               class="form-control" name="lastName"
-               placeholder="あんぎゅら" required>
-        <input ng-model="order.firstName" type="text"
-               class="form-control" name="firstName"
-               placeholder="じぇいえす" required>
-      </div>
-      <div class="col-sm-2"></div>
-      <div class="form-group col-sm-10">
-        <span ng-show="purch_form.lastName.$error.required" class="text-danger"> 名前(姓)は必須です</span>
-        <span ng-show="purch_form.firstName.$error.required" class="text-danger"> 名前(名)は必須です</span>
-      </div>
-    </div>
-    <div>
-      <div class="form-group">
-        <label for="tel" class="col-sm-2 control-label">電話番号</label>
-        <div class="col-sm-10">
-          <input ng-model="order.tel" type="tel" required is-telephone
-                 class="form-control" id="tel" name="tel" placeholder="999-9999-9999">
-        </div>
-        <div ng-show="purch_form.tel.$invalid" class="col-sm-2"></div>
-        <div ng-show="purch_form.tel.$invalid" class="text-danger col-sm-10">
-          <span ng-show="purch_form.tel.$error.required">電話番号は必須です</span>
-          <span ng-show="purch_form.tel.$error.telephone"><p>電話番号は数値のみ入力できます</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="address" class="col-sm-2 control-label">お届け先住所</label>
-        <div class="col-sm-10">
-          <input ng-model="order.address" type="text" required
-                 class="form-control" id="address" name="address" placeholder="東京都渋谷区東1-2-20 ">
-        </div>
-        <div ng-show="purch_form.address.$error.required" class="col-sm-2"></div>
-        <span ng-show="purch_form.address.$error.required" class="text-danger col-sm-10"> 住所は必須です</span>
-      </div>
-
-      <div class="form-group">
-        <label for="mail" class="col-sm-2 control-label">メールアドレス</label>
-        <div class="col-sm-10">
-          <input ng-model="order.mailaddress" type="email" required
-                 class="form-control" id="mail" name="mail" placeholder="example@co.jp">
-        </div>
-      </div>
-      <div ng-show="purch_form.mail.$invalid" class="col-sm-2"></div>
-      <div ng-show="purch_form.mail.$invalid" class="text-danger col-sm-10">
-        <span ng-show="purch_form.mail.$error.required">メールアドレスは必須です</span>
-        <span ng-show="purch_form.mail.$error.email">メールアドレス形式でありません</span>
-      </div>
-    </div>
-    <button ng-show="purch_form.$valid" type="button" class="btn btn-danger pull-right" ng-click="payment()">決済する</button>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">送付先を入力してください</h3>
   </div>
-</form>
+  <div class="panel-body">
+    <form novalidate class="simple-form" name="purch_form">
+      <div class="col-md-9">
+        <div class="form-inline">
+          <label class="col-sm-2" for="lastName">お名前</label>
+          <div class="form-group col-sm-10">
+            <input ng-model="order.lastName" type="text" 
+                   class="form-control" name="lastName"
+                   placeholder="あんぎゅら" required>
+            <input ng-model="order.firstName" type="text"
+                   class="form-control" name="firstName"
+                   placeholder="じぇいえす" required>
+          </div>
+          <div class="col-sm-2"></div>
+          <div class="form-group col-sm-10">
+            <p><span ng-show="purch_form.lastName.$error.required" class="text-danger"> 名前(姓)は必須です</span>
+            <p><span ng-show="purch_form.firstName.$error.required" class="text-danger"> 名前(名)は必須です</span>
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <label for="tel" class="col-sm-2 control-label">電話番号</label>
+            <div class="col-sm-10">
+              <input ng-model="order.tel" type="tel" required is-telephone
+                     class="form-control" id="tel" name="tel" placeholder="999-9999-9999">
+            </div>
+            <div ng-show="purch_form.tel.$invalid" class="col-sm-2"></div>
+            <div ng-show="purch_form.tel.$invalid" class="text-danger col-sm-10">
+              <span ng-show="purch_form.tel.$error.required">電話番号は必須です</span>
+              <span ng-show="purch_form.tel.$error.telephone"><p>電話番号は数値のみ入力できます</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address" class="col-sm-2 control-label">お届け先住所</label>
+            <div class="col-sm-10">
+              <input ng-model="order.address" type="text" required
+                     class="form-control" id="address" name="address" placeholder="東京都渋谷区東1-2-20 ">
+            </div>
+            <div ng-show="purch_form.address.$error.required" class="col-sm-2"></div>
+            <span ng-show="purch_form.address.$error.required" class="text-danger col-sm-10"> 住所は必須です</span>
+          </div>
+
+          <div class="form-group">
+            <label for="mail" class="col-sm-2 control-label">メールアドレス</label>
+            <div class="col-sm-10">
+              <input ng-model="order.mailaddress" type="email" required
+                     class="form-control" id="mail" name="mail" placeholder="example@co.jp">
+            </div>
+          </div>
+          <div ng-show="purch_form.mail.$invalid" class="col-sm-2"></div>
+          <div ng-show="purch_form.mail.$invalid" class="text-danger col-sm-10">
+            <span ng-show="purch_form.mail.$error.required">メールアドレスは必須です</span>
+            <span ng-show="purch_form.mail.$error.email">メールアドレス形式でありません</span>
+          </div>
+        </div>
+        <button ng-show="purch_form.$valid" type="button" class="btn btn-danger pull-right" ng-click="payment()">
+          <span ng-if="!isLoading">決済する</span>
+          <span ng-if="isLoading"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> 購入中...</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

@@ -8,10 +8,12 @@
        <span ng-if="CartItemCount()">({{CartItemCount()}})</span>
 </div>
 <ul class="list-group">
-  <li class="list-group-item" ng-repeat="product in products track by $index">
-    <p>{{product.productName}}</p>
-    <p>{{product.price}}</p>
+  <li class="list-group-item" ng-repeat="product in products as results">
+    <p>商品名：{{product.productName}}</p>
+    <p>￥{{product.price}}</p>
     <button type="button" class="btn btn-info item-add"
             ng-click="addCart($index)">カートに追加</button>
   </li>
+  <div ng-if="!results.length" >
+  <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Now Loading...</div>
 </ul>

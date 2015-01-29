@@ -4,13 +4,13 @@
   <ul class="list-group">
     <li class="list-group-item" 
         ng-repeat="(productId, item) in cartItems track by $index">
-      <p>{{item.productName}}</p>
-      <p>{{item.price}}</p>
-      <p>{{item.count}}</p>
+      <p>商品名：{{item.productName}}</p>
+      <p>￥{{item.price}}</p>
+      <p>購入数：{{item.count}}</p>
       <button type="button" class="btn btn-info cart-add"
-              ng-click="addCart(productId)">カートに追加</button>
+              ng-click="addCart(productId)">さらにカートに追加</button>
       <button type="button" class="btn btn-warning cart-remove"
-              ng-click="removeCart(productId)">カートから削除</button>
+              ng-click="removeCart(productId)">カートから１つ削除</button>
     </li>
   </ul>
   <div class="text-center">
