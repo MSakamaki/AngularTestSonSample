@@ -699,7 +699,6 @@ module.exports = function (grunt) {
         'wiredep',
         'autoprefixer',
         'express:dev',
-        'protractor:functional',
         isCi ? 'protractor:functional_ci' : 'protractor:functional'
       ]);
     }
