@@ -45,7 +45,9 @@ var homePage = function() {
     }).then(function(){
       return viewCartBtn.click();
     }).then(function(){
-      return cartPage.buyBtnEl.isPresent();
+      return browser.wait(function(){
+        return cartPage.buyBtnEl.isPresent();
+      });
     });
   };
 };
