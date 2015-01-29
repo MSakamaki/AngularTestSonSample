@@ -8,9 +8,11 @@
 // カート内ページ
 var CartPage = function() {
 
+  // repeater
+  var cartItem = '(productId, item) in cartItems';
   // エレメント
-  this.cartItemRowsEl = element.all(by.repeater('item in cartItems'));
-  this.cartItemEl = element(by.repeater('item in cartItems'));
+  this.cartItemRowsEl = element.all(by.repeater(cartItem));
+  this.cartItemEl = element(by.repeater(cartItem));
   this.clearBtnEl = element(by.css('.cart-clear'));
   this.buyBtnEl   = element(by.css('.cart-buy'));
 
@@ -22,7 +24,7 @@ var CartPage = function() {
    * @return {Promise}
    */
   this.removeCart = function(cartRowNo){
-    var cartBtn = element(by.repeater('item in cartItems').row(cartRowNo))
+    var cartBtn = element(by.repeater(cartItem).row(cartRowNo))
       .element(by.css('.cart-remove'));
     return browser.wait(function(){
       return cartBtn.isPresent();
