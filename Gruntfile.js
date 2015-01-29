@@ -715,7 +715,7 @@ module.exports = function (grunt) {
         'wiredep',
         'autoprefixer',
         'express:dev',
-        isCi ? 'protractor:acceptable_ci' : 'protractor:acceptable'
+        isCi ? 'protractor:acceptance_ci' : 'protractor:acceptance'
       ]);
     }
 

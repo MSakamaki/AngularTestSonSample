@@ -10,17 +10,22 @@ var products = [{
   "stock": 10
 },{
   "productId": 11,
+  "productName": "AngularJSリファレンス 単行本（ソフトカバー）",
+  "price": 3500,
+  "stock": 10
+},{
+  "productId": 12,
   "productName": "スコンブ(業務用)",
   "price": 800,
   "stock": 5
 },{
-  "productId": 12,
+  "productId": 13,
   "productName": "味わいカルピス",
   "price": 100,
   "stock": 100
 }];
 
-// 商品を とるのに 2秒も かかるぞ！
+// 商品を とるのに 2秒かかる
 exports.index = function(req, res) {
   setTimeout(function(){
     res.json(products);

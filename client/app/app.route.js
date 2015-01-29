@@ -5,7 +5,7 @@ angular.module('AngularJsTestson')
       function ($urlRouterProvider, $stateProvider) {
 
     $urlRouterProvider
-      .otherwise('/home');
+      .otherwise('/orderlist/index.HTML');
 
     $stateProvider
       .state('main', {
@@ -17,24 +17,6 @@ angular.module('AngularJsTestson')
           }
         }
       })
-
-    // 非認証時
-    // .state('main.login', {
-    //   url: '^/login',
-    //   views: {
-    //     'header@main': {
-    //       template: ''
-    //     },
-    //     'contents@main': {
-    //       templateUrl: 'app/login/login.html',
-    //       controllerAs: 'login',
-    //       controller: 'LoginController'
-    //     },
-    //     'footer@main': {
-    //       template: ''
-    //     }
-    //   }
-    // })
 
     // アプリルート
     .state('main.app', {
@@ -53,9 +35,9 @@ angular.module('AngularJsTestson')
       }
     })
 
-    // ホーム
+    // ホーム(商品一覧)
     .state('main.app.home', {
-      url: '^/home',
+      url: '^/orderlist/index.HTML',
       views: {
         'contents@main': {
           templateUrl: 'app/home/home.html',
@@ -67,7 +49,7 @@ angular.module('AngularJsTestson')
 
     // カート
     .state('main.app.cart', {
-      url: '^/cart',
+      url: '^/cart/index.HTML',
       views: {
         'contents@main': {
           templateUrl: 'app/cart/cart.html',
@@ -78,7 +60,7 @@ angular.module('AngularJsTestson')
 
     // お届け先入力
     .state('main.app.address', {
-      url: '^/cart',
+      url: '^/cart/settlement.HTML',
       views: {
         'contents@main': {
           templateUrl: 'app/address/address.html',

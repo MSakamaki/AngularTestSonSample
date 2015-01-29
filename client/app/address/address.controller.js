@@ -1,18 +1,25 @@
 'use strict';
 
 angular.module('AngularJsTestson')
-  .controller('AddressCtrl', function ($scope, $http, cartItem) {
+  .controller('AddressCtrl', function ($scope, $http, $state, cartItem) {
     $scope.payment = function(){
       var items=[];
-      angular.forEach(cartItem.items, function(v,k){
+      angular.forEach(cartItem.items, function(v){
         items.push({
           productId: v.productId,
           quantity: 1
         });
       });
-      $http.post('/api/purchases', items)
-        .success(function(data){
-          alert('決済しました');
-        });
+      $http.post('/api/purchases', {
+        firstName   : $scope.order.firstName,
+        lastName    : $scope.order.lastName,
+        tel         : $scope.order.tel,
+        address     : $scope.order.address,
+        mailaddress : $scope.order.mailaddress,
+        purchases   : items
+      }).success(function(data){
+        alert('決済しました');
+        $state.go('main.app.home');
+      });
     };
   });

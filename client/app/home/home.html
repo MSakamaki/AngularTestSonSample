@@ -1,7 +1,9 @@
 <h1 class="homepage-title">{{home.message}}</h1>
-<div ui-sref="main.app.address()" class="btn btn-info" ng-disabled="!CartItemCount()">購入する</div>
+<div ui-sref="main.app.address()"
+     class="btn btn-info item-buy"
+     ng-disabled="!CartItemCount()">購入する</div>
 <div ui-sref="main.app.cart()"
-     class="btn btn-info"
+     class="btn btn-info item-viewcart"
      ng-disabled="!CartItemCount()">カートを見る
        <span ng-if="CartItemCount()">({{CartItemCount()}})</span>
 </div>
@@ -10,6 +12,7 @@
     <p>{{product.productName}}</p>
     <p>{{product.price}}</p>
     <p>のこり{{product.stock}}</p>
-    <button type="button" class="btn btn-info" ng-click="addCart($index)">カートに追加</button>
+    <button type="button" class="btn btn-info item-add"
+            ng-click="addCart($index)">カートに追加</button>
   </li>
 </ul>
