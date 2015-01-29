@@ -11,7 +11,6 @@
   <li class="list-group-item" ng-repeat="product in products track by $index">
     <p>{{product.productName}}</p>
     <p>{{product.price}}</p>
-    <p>のこり{{product.stock}}</p>
     <button type="button" class="btn btn-info item-add"
             ng-click="addCart($index)">カートに追加</button>
   </li>

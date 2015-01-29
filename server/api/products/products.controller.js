@@ -6,23 +6,19 @@ var _ = require('lodash');
 var products = [{
   "productId": 10,
   "productName": "はじめてのAngularJS(和書)",
-  "price": 2000,
-  "stock": 10
+  "price": 2000
 },{
   "productId": 11,
   "productName": "AngularJSリファレンス 単行本（ソフトカバー）",
-  "price": 3500,
-  "stock": 10
+  "price": 3500
 },{
   "productId": 12,
   "productName": "スコンブ(業務用)",
-  "price": 800,
-  "stock": 5
+  "price": 800
 },{
   "productId": 13,
   "productName": "味わいカルピス",
-  "price": 100,
-  "stock": 100
+  "price": 100
 }];
 
 // 商品を とるのに 2秒かかる
