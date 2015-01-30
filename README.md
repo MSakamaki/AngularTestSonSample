@@ -1,16 +1,14 @@
-AngularJSテスト課題雛形
+AngularJSテスト課題(2015-02-01)
 ===============
 
 はじめに
 ------
-AngularJSテストソン用テンプレート
-masterはテンプレートで使い回し用(ある程度形が固まったらジェネレータにしたい)
-イベント毎にブランチきりながら最初はやって行く予定
 
-ドキュメント
-----
+2015-02-01開催したAngularJSテストソン用の課題です
 
-[アプリの仕様](https://github.com/MSakamaki/AngularTestSonSample/wiki/2015-02-01-Testson-Application-Spec)
+アプリケーションの仕様は[ドキュメント(wiki)](https://github.com/MSakamaki/AngularTestSonSample/wiki/2015-02-01-Testson-Application-Spec)を参照してください。
+
+
 
 
 前準備
@@ -22,48 +20,63 @@ masterはテンプレートで使い回し用(ある程度形が固まったら�
 
 ```sh
 # 使用するツールをグローバルにインストール
-npm i -g appium mocha bower grunt-cli protractor istanbul yo karma-cli generator-karma generator-mocha generator-angular-fullstack
+npm i -g mocha bower grunt-cli protractor istanbul yo karma-cli generator-karma generator-mocha generator-angular-fullstack
 ```
 
 開発開始
 ---------
 
 ```sh
-git clone xxxxxx sample
-cd sample
+git clone https://github.com/MSakamaki/AngularTestSonSample.git -b hackathon/20150201 hack20150201
+cd hack20150201
 npm install
-bower install
+```
+
+実行
+----------
+
+```sh
+grunt serve
 ```
 
 ### ディレクトリ構成
 
 ```sh
 ├── Gruntfile.js
+├── README.md
 ├── bower.json
-├── package.json
-├── client
+├── client # karmaで行う単体テストはこのディレクトリにあります。grunt testで動作します
 │   ├── app
 │   ├── assets
+│   ├── bower_components
 │   ├── components
-│   └── index.html
-├── e2e
+│   ├── favicon.ico
+│   ├── index.html
+│   └── robots.txt
+├── e2e # protractorで行うe2eテストはこのディレクトリにあります。grunt test:e2e、grunt test:acceptで動作します
+│   ├── README.md
+│   ├── acceptance_test
 │   ├── components
-│   ├── functional_test
-│   └── acceptance_test
+│   └── functional_test
+├── karma.ci.conf.js
 ├── karma.conf.js
-├── protractor.acceptance.conf.js
-├── protractor.functional.conf.js
+├── node_modules
+│   └── ....
+├── package.json
+├── protractor
+│   └── .. # protractorの設定ファイル
 ├── report
-│   ├── coverage
-│   └── plato
+│   ├── coverage # カバレッジレポート
+│   └── plato    # コードメトリクス
 └── server
-    ├── api
+    ├── api  # API設定
+    ├── app.js
     ├── auth
     ├── components
     ├── config
+    ├── routes.js
     ├── user
     └── views
-
 
 ```
 
@@ -75,14 +88,14 @@ bower install
 - テスト
     - `test` クライアントの単体テスト
     - `test:client` test の alias
-    - `test:e2e` エンドtoエンドのテスト
+    - `test:e2e` End to Endのテスト
     - `test:accept` 受け入れテスト
 - レポート
     - `report:make` レポート生成
     - `report:view` レポートを見る
+    - `report:ci`   XMLレポートを生成
 - ビルド
     - `build` リリース用ファイルを作り出す。  
-     (client/components/constants/environments.costant.js.releace の設定でビルドする)
 - 追加オプション
     - `env` デフォルト`unit`
      - `--env=unit`  単体テスト用の設定ファイルを使う
@@ -132,7 +145,7 @@ protractor.conf.js
 その他
 ------
 
-Angular.js デバッグツール
+### Angular.js デバッグツール
 
 - [Batarang (Chrome アプリ)](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 - [ng-inspector for AngularJS(Chrome アプリ)](https://chrome.google.com/webstore/detail/ng-inspector-for-angularj/aadgmnobpdmgmigaicncghmmoeflnamj)
