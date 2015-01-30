@@ -6,9 +6,11 @@ AngularJSテスト課題(2015-02-01)
 
 2015-02-01開催したAngularJSテストソン用の課題です
 
+[generator-angular-fullstack](https://github.com/DaftMonk/generator-angular-fullstack)をベースに作成してあります。
+
 アプリケーションの仕様は[ドキュメント(wiki)](https://github.com/MSakamaki/AngularTestSonSample/wiki/2015-02-01-Testson-Application-Spec)を参照してください。
 
-
+テストコードだけでなく、テストしやすいようにリファクタや構成も弄ってもらってかまいません。
 
 
 前準備
