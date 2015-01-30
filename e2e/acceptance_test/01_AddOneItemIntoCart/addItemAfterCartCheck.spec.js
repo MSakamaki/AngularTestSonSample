@@ -5,7 +5,7 @@
  */
 'use strict';
 
-describe('シナリオ１', function() {
+describe('UseCase01', function() {
   var page={};
 
   beforeEach(function() {
@@ -14,7 +14,8 @@ describe('シナリオ１', function() {
     page.home = require('../../components/home/home.po');
   });
 
-  it('カートに2つ商品を入れた後、１つ削除して、カートの中身が１つになっている事を確認', function(done) {
+  // カートに2つ商品を入れた後、１つ削除して、カートの中身が１つになっている事を確認
+  it('cart check', function(done) {
     // 商品を2つ追加しておく
     page.home.addCart('0').then(function(){
       return page.home.addCart('1');

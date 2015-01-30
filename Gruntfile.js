@@ -666,7 +666,6 @@ module.exports = function (grunt) {
   grunt.registerTask('test', function(target) {
     var testType = grunt.option('env');
     var isCi = grunt.option('ci');
-    grunt.log.writeln('test type: ', testType);
     var getTestType = function (type){
       switch (type) {
         case 'unit':    return 'copy:unit_test';
@@ -675,6 +674,11 @@ module.exports = function (grunt) {
         default:        return 'copy:unit_test'
       }
     };
+    grunt.log.writeln('target   : ', target);
+    grunt.log.writeln('test type: ', getTestType(testType));
+    if (isCi === true){
+      grunt.log.writeln('Ci Mode...');
+    }
 
     if (target === 'client') {
       return grunt.task.run([

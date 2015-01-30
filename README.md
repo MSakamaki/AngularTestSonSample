@@ -10,7 +10,7 @@ masterはテンプレートで使い回し用(ある程度形が固まったら�
 ドキュメント
 ----
 
-[アプリの仕様的な](https://github.com/MSakamaki/AngularTestSonSample/wiki/2015-02-01-Testson-Application-Spec)
+[アプリの仕様](https://github.com/MSakamaki/AngularTestSonSample/wiki/2015-02-01-Testson-Application-Spec)
 
 
 前準備
