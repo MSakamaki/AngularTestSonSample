@@ -7,6 +7,11 @@ AngularJSテストソン用テンプレート
 masterはテンプレートで使い回し用(ある程度形が固まったらジェネレータにしたい)
 イベント毎にブランチきりながら最初はやって行く予定
 
+ドキュメント
+----
+
+[アプリの仕様](https://github.com/MSakamaki/AngularTestSonSample/wiki/2015-02-01-Testson-Application-Spec)
+
 
 前準備
 ------

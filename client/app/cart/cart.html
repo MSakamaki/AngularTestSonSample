@@ -1,0 +1,20 @@
+<div ui-sref="main.app.home()" class="btn btn-info cart-return">商品一覧に戻る</div>
+<div ui-sref="main.app.address()" class="btn btn-info cart-buy">購入する</div>
+<div class="col-md-12">
+  <ul class="list-group">
+    <li class="list-group-item" 
+        ng-repeat="(productId, item) in cartItems track by $index">
+      <p>商品名：{{item.productName}}</p>
+      <p>￥{{item.price}}</p>
+      <p>購入数：{{item.count}}</p>
+      <button type="button" class="btn btn-info cart-add"
+              ng-click="addCart(productId)">さらにカートに追加</button>
+      <button type="button" class="btn btn-warning cart-remove"
+              ng-click="removeCart(productId)">カートから１つ削除</button>
+    </li>
+  </ul>
+  <div class="text-center">
+    <button type="button" class="btn btn-danger cart-clear" ng-click="clearCart()">カートをクリア</button>
+  </div>
+</div>
+

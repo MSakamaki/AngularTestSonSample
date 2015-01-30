@@ -1,1 +1,19 @@
 <h1 class="homepage-title">{{home.message}}</h1>
+<div ui-sref="main.app.address()"
+     class="btn btn-info item-buy"
+     ng-disabled="!CartItemCount()">購入する</div>
+<div ui-sref="main.app.cart()"
+     class="btn btn-info item-viewcart"
+     ng-disabled="!CartItemCount()">カートを見る
+       <span ng-if="CartItemCount()">({{CartItemCount()}})</span>
+</div>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="product in products as results">
+    <p>商品名：{{product.productName}}</p>
+    <p>￥{{product.price}}</p>
+    <button type="button" class="btn btn-info item-add"
+            ng-click="addCart($index)">カートに追加</button>
+  </li>
+  <div ng-if="!results.length" >
+  <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Now Loading...</div>
+</ul>

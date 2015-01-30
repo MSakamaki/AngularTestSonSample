@@ -1,6 +1,6 @@
 'use strict';
 
-var conf = require('./protractor.acceptable.conf.js');
+var conf = require('./protractor.acceptance.conf.js');
 
 conf.config.onPrepare = function(){
   require('jasmine-reporters');

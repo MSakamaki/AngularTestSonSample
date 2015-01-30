@@ -9,24 +9,46 @@
 var homePage = function() {
 
   // エレメント
-  this.loginTitle = element(by.css('.homepage-title'));
-  this.logoutBtnEl = element(by.linkText('ログアウト'));
-  this.loginUser = element(by.css('.loginuser'));
+  this.buyBtnEl = element(by.css('.item-buy'));
+  this.viewcartBtnEl = element(by.css('.item-viewcart'));
 
 
   /**
-   * ユースケース(ログアウト)
-   * ログアウト操作を行った後、Promiseを返却。
+   * ユースケース(商品の追加)
+   * 指定行の商品を追加する。
+   *
+   * @param  {Number}   itemRowNo  - 追加するカートの列番号
+   * @return {Promise}
+   */
+  this.addCart = function(itemRowNo){
+    var cartBtn = element(by.repeater('product in products').row(itemRowNo))
+      .element(by.css('.item-add'));
+    return browser.wait(function(){
+      return cartBtn.isPresent();
+    }, 10000, 'about add cart').then(function(){
+      return cartBtn.click();
+    });
+  };
+
+  /**
+   * ユースケース(カートを見る)
+   * カート画面に移動する
    *
    * @return {Promise}
    */
-  this.logout = function(user, password, callback){
-    var login = require('../../components/login/login.po');
-    this.logoutBtnEl.click();
+  this.moveCartView = function(){
+    var viewCartBtn = new homePage().viewcartBtnEl;
+    var cartPage = require('../../components/cart/cart.po');
 
     return browser.wait(function(){
-      return login.loginBtnEl.isPresent();
-    }, 10000, 'about logout');
+      return viewCartBtn.isPresent();
+    }).then(function(){
+      return viewCartBtn.click();
+    }).then(function(){
+      return browser.wait(function(){
+        return cartPage.buyBtnEl.isPresent();
+      });
+    });
   };
 };
 

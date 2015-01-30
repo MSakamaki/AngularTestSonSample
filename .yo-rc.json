@@ -1,5 +1,5 @@
 {
-  "angular-fullstack": {
+  "generator-angular-fullstack": {
     "insertRoutes": true,
     "registerRoutesFile": "server/routes.js",
     "routesNeedle": "// Insert routes below",
@@ -14,9 +14,7 @@
       "css": true,
       "uirouter": true,
       "bootstrap": true,
-      "uibootstrap": true,
-      "mongoose": true,
-      "auth": true
+      "uibootstrap": true
     }
   },
   "generator-ng-component": {
