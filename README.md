@@ -55,11 +55,11 @@ grunt serve
 │   ├── favicon.ico
 │   ├── index.html
 │   └── robots.txt
-├── e2e # protractorで行うe2eテストはこのディレクトリにあります。grunt test:e2e、grunt test:acceptで動作します
+├── e2e # protractorで行うe2eテストはこのディレクトリにあります。
 │   ├── README.md
-│   ├── acceptance_test
+│   ├── acceptance_test # grunt test:acceptで動作します
 │   ├── components
-│   └── functional_test
+│   └── functional_test # grunt test:e2eで動作します
 ├── karma.ci.conf.js
 ├── karma.conf.js
 ├── node_modules
